@@ -1,4 +1,4 @@
-class GameObject {
+export default class GameObject {
     protected startX:number;
     protected startY:number;
     public x:number;

@@ -1,12 +1,13 @@
-/// <reference path="GameObject.ts" />
-/// <reference path="Ship.ts" />
-/// <reference path="Star.ts" />
-/// <reference path="Enemy.ts" />
+import Ship from './Ship.js'
+import GameObject from "./GameObject.js"
+import Star from "./Star.js";
+import Enemy from "./Enemy.js";
+
 var canvas = <HTMLCanvasElement> document.getElementById("myCanvas");
 canvas.style.background = 'black';
 var ctx = canvas.getContext("2d");
 
-class Game {
+export default class Game {
     ship:Ship = new Ship(canvas);
     enemies:Enemy[] = [];
     stars:Star[] = [];

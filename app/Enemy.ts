@@ -1,5 +1,5 @@
-/// <reference path="GameObject.ts" />
-class Enemy extends GameObject {
+import GameObject from './GameObject.js';
+export default class Enemy extends GameObject {
     private colour = this.randomColour();
 
     constructor(canvas:HTMLCanvasElement) {
@@ -21,8 +21,8 @@ class Enemy extends GameObject {
     spawn() {
         this.active = true;
         this.visible = true;
-        this.x = canvas.width;
-        this.y = canvas.height * Math.random();
+        this.x = this.canvas.width;
+        this.y = this.canvas.height * Math.random();
         this.colour = this.randomColour();
     }
 

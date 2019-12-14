@@ -1,5 +1,5 @@
-/// <reference path="GameObject.ts" />
-class Projectile extends GameObject {
+import GameObject from "./GameObject.js";
+export default class Projectile extends GameObject {
     private colour:string = this.randomColour();
     public static rate:number = 200;
     public static radius = 5;

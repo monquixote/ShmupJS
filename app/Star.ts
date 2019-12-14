@@ -1,5 +1,5 @@
-/// <reference path="GameObject.ts" />
-class Star extends GameObject {
+import GameObject from "./GameObject.js";
+export default class Star extends GameObject {
     private speed:number;
 
     spawn() {

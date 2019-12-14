@@ -1,0 +1,31 @@
+{
+  "name": "shmupjs",
+  "version": "1.0.0",
+  "description": "Simple Shooter Game in Typescript",
+  "main": "game.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monquixote/ShmupJS.git"
+  },
+  "author": "Nick Long",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/monquixote/ShmupJS/issues"
+  },
+  "homepage": "https://github.com/monquixote/ShmupJS#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.11.0",
+    "@typescript-eslint/parser": "^2.11.0",
+    "eslint": "^6.7.2",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "typescript": "^3.7.3"
+  }
+}

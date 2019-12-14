@@ -1,4 +1,4 @@
-class PlayerInput {
+export class PlayerInput {
     public right:boolean = false;
     public left:boolean = false;
     public up:boolean = false;
@@ -6,7 +6,7 @@ class PlayerInput {
     public fire:boolean = false;
 }
 
-class KeyInput extends PlayerInput {
+export class KeyInput extends PlayerInput {
     private rightKey:number = 39;
     private leftKey:number = 37;
     private upKey:number = 38;

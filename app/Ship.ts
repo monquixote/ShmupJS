@@ -1,8 +1,8 @@
-/// <reference path="GameObject.ts" />
-/// <reference path="game.ts" />
-/// <reference path="input.ts" />
-/// <reference path="Projectile.ts" />
-class Ship extends GameObject {
+import GameObject from "./GameObject.js";
+import Projectile from "./Projectile.js";
+import {PlayerInput, KeyInput} from "./Input.js";
+
+export default class Ship extends GameObject {
     private input:PlayerInput = new KeyInput();
     public projectiles:Projectile[] = [];
     private lastShot:number = 0;
