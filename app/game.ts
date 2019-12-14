@@ -3,9 +3,9 @@ import GameObject from "./GameObject.js"
 import Star from "./Star.js";
 import Enemy from "./Enemy.js";
 
-var canvas = <HTMLCanvasElement> document.getElementById("myCanvas");
+const canvas = <HTMLCanvasElement> document.getElementById("myCanvas");
 canvas.style.background = 'black';
-var ctx = canvas.getContext("2d");
+const ctx = canvas.getContext("2d");
 
 export default class Game {
     ship:Ship = new Ship(canvas);
@@ -26,14 +26,8 @@ export default class Game {
     }
 
     spawnEnemy() {
-        if (Math.random() * 100 > 95) {
-            let enemy;
-            for (let i = 0; i < this.enemies.length; i++) {
-                if (!this.enemies[i].isActive()) {
-                    enemy = this.enemies[i];
-                    break;
-                }
-            }
+        if (Math.random() > 0.95) {
+            let enemy = this.enemies.find(enemy => !enemy.isActive());
             if (!enemy) {
                 enemy = new Enemy(canvas);
                 this.enemies.push(enemy);
@@ -43,15 +37,9 @@ export default class Game {
     }
 
     spawnStar() {
-        if (Math.random() * 100 > 90) {
-            let star;
-            for (let i = 0; i < this.stars.length; i++) {
-                if (!this.stars[i].isActive()) {
-                    star = this.stars[i];
-                    break;
-                }
-            }
-            if (!star) {
+        if (Math.random() > 0.9) {
+            let star = this.stars.find(star => !star.isActive())
+            if(!star) {
                 star = new Star(canvas);
                 this.stars.push(star);
             }
@@ -69,7 +57,7 @@ export default class Game {
         this.calcTime(timestamp);
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        this.stars.forEach((star)=> {
+        this.stars.forEach(star => {
             star.updatePosition(this.timeFactor);
             star.draw();
         });
@@ -142,4 +130,4 @@ export default class Game {
 }
 
 let game = new Game();
-game.start();
+//game.start();

@@ -1,10 +1,10 @@
 export default class GameObject {
     protected startX:number;
     protected startY:number;
-    public x:number;
-    public y:number;
-    public width:number;
-    public height:number;
+    protected _x:number;
+    protected _y:number;
+    protected _width:number;
+    protected _height:number;
     protected visible:boolean;
     protected ctx:CanvasRenderingContext2D;
     protected active:boolean = false;
@@ -13,6 +13,22 @@ export default class GameObject {
         this.canvas = canvas;
         this.ctx = canvas.getContext("2d");
         this.initialise();
+    }
+
+    public get x() {
+        return this._x;
+    }
+
+    public get y() {
+        return this._y;
+    }
+
+    public get width() {
+        return this._width;
+    }
+
+    public get height() {
+        return this._height;
     }
 
     spawn(x:number = 0, y:number = 0) {
@@ -25,8 +41,8 @@ export default class GameObject {
     initialise():void {
         this.startX = this.canvas.width / 2;
         this.startY = this.canvas.height / 2;
-        this.x = this.startX;
-        this.y = this.startY;
+        this._x = this.startX;
+        this._y = this.startY;
         this.visible = true;
     }
 
