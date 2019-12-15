@@ -11,9 +11,12 @@ export default class Projectile extends GameObject {
         this._width = Projectile.radius * 2;
     }
 
-    spawn(x, y) {
+    spawn() {
         this.active = true;
         this.visible = true;
+    }
+
+    setLocation(x: number, y: number) {
         this._x = x;
         this._y = y;
     }

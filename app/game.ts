@@ -85,7 +85,12 @@ export default class Game {
     }
 
     start() {
+        this.enemies = [];
+        this.stars = [];
+        this.score = 0;
         this.running = true;
+        this.ship.spawn();
+
         //Prepopulate starfield
         for (let i = 0; i < 200; i++) {
             this.spawnStar();
@@ -129,5 +134,5 @@ export default class Game {
     }
 }
 
-let game = new Game();
+const game = new Game();
 //game.start();

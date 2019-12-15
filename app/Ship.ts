@@ -3,6 +3,7 @@ import Projectile from "./Projectile.js";
 import {PlayerInput, KeyInput} from "./Input.js";
 
 export default class Ship extends GameObject {
+   
     private input:PlayerInput = new KeyInput();
     public projectiles:Projectile[] = [];
     private lastShot:number = 0;
@@ -13,8 +14,16 @@ export default class Ship extends GameObject {
         super(canvas);
         this._width = canvas.width / 10;
         this._height = canvas.height / 15;
+        this.startX = this.width;
+        this.startY = this.canvas.height / 2;
         this.img = document.getElementById("uni");
+        this.spawn();
+    }
 
+    spawn() {
+        this._x = this.startX;
+        this._y = this.startY;
+        this.visible = true;
     }
 
     draw():void {
@@ -52,14 +61,12 @@ export default class Ship extends GameObject {
     }
 
     fireNextProjectile() {
-        for (var i = 0; i < this.projectiles.length; i++) {
-            if (!this.projectiles[i].isActive()) {
-                this.projectiles[i].spawn(this._x + this.width, this._y + (this.height / 2));
-                return;
-            }
+        let proj = this.projectiles.find( proj => !proj.isActive()) 
+        if(! proj) {
+            proj = new Projectile(this.canvas);
+            this.projectiles.push(proj);
         }
-        let newProj = new Projectile(this.canvas);
-        newProj.spawn(this._x + this.width, this._y + (this.height / 2));
-        this.projectiles.push(newProj);
+        proj.setLocation(this._x + this.width, this._y + (this.height / 2));
+        proj.spawn();
     }
 }

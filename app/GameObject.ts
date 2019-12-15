@@ -1,4 +1,4 @@
-export default class GameObject {
+export default abstract class GameObject {
     protected startX:number;
     protected startY:number;
     protected _x:number;
@@ -12,7 +12,6 @@ export default class GameObject {
     constructor(protected canvas:HTMLCanvasElement) {
         this.canvas = canvas;
         this.ctx = canvas.getContext("2d");
-        this.initialise();
     }
 
     public get x() {
@@ -31,26 +30,15 @@ export default class GameObject {
         return this._height;
     }
 
-    spawn(x:number = 0, y:number = 0) {
-    }
+    abstract spawn():void;
 
     isActive() {
         return this.active
     }
 
-    initialise():void {
-        this.startX = this.canvas.width / 2;
-        this.startY = this.canvas.height / 2;
-        this._x = this.startX;
-        this._y = this.startY;
-        this.visible = true;
-    }
+    abstract draw():void;
 
-    draw():void {
-    }
-
-    updatePosition(timeFactor:number):void {
-    }
+    abstract updatePosition(timeFactor:number):void;
 
     destroy():void {
         this.active = false;
