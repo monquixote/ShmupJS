@@ -1,7 +1,7 @@
-import Ship from './Ship.js'
-import GameObject from "./GameObject.js"
-import Star from "./Star.js";
-import Enemy from "./Enemy.js";
+import Ship from './Ship'
+import GameObject from "./GameObject"
+import Star from "./Star";
+import Enemy from "./Enemy";
 
 const canvas = <HTMLCanvasElement> document.getElementById("myCanvas");
 canvas.style.background = 'black';
@@ -18,9 +18,12 @@ export default class Game {
     private timeFactor:number = 1;
 
     constructor() {
-        document.addEventListener("keydown", (key)=> {
-            if (key.keyCode == 49) {
-                this.start();
+        this.drawTitle();
+        document.addEventListener("keydown", key => {
+            if (key.keyCode == 32) {
+                if(!this.running) {
+                    this.start();
+                }
             }
         }, false);
     }
@@ -84,6 +87,14 @@ export default class Game {
         ctx.fillText(`Score: ${this.score} FPS: ${Math.floor(1000 / this.interval)}`, 10, 25);
     }
 
+    drawTitle() {
+        ctx.fillStyle = "#FFFFFF";
+        ctx.font = "50px sans-serif";
+        ctx.save();
+        ctx.fillText(`SPACE UNICORN`, canvas.width / 4 , canvas.height / 2);
+        ctx.restore();
+    }
+
     start() {
         this.enemies = [];
         this.stars = [];
@@ -104,6 +115,7 @@ export default class Game {
 
     stop() {
         this.running = false;
+        this.drawTitle();
     }
 
     collisionDetection() {

@@ -1,4 +1,4 @@
-import GameObject from "./GameObject.js";
+import GameObject from "./GameObject";
 export default class Projectile extends GameObject {
     private colour:string = this.randomColour();
     public static rate:number = 200;

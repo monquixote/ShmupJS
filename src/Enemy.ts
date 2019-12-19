@@ -1,4 +1,4 @@
-import GameObject from './GameObject.js';
+import GameObject from './GameObject';
 export default class Enemy extends GameObject {
     private colour = this.randomColour();
     private speed = Math.random() - 0.5;

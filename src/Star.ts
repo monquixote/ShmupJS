@@ -1,4 +1,4 @@
-import GameObject from "./GameObject.js";
+import GameObject from "./GameObject";
 export default class Star extends GameObject {
     private speed:number;
 

@@ -1,6 +1,6 @@
-import GameObject from "./GameObject.js";
-import Projectile from "./Projectile.js";
-import {PlayerInput, KeyInput} from "./Input.js";
+import GameObject from "./GameObject";
+import Projectile from "./Projectile";
+import {PlayerInput, KeyInput} from "./Input";
 
 export default class Ship extends GameObject {
    
